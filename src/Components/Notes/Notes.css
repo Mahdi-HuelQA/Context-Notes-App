@@ -1,0 +1,22 @@
+.note {
+  background-color: #fef68a;
+  min-height: 170px;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+
+}
+
+/* white-space saves spacing */
+/* overflow-wrap breaks text into new line */
+
+.note-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

@@ -1,0 +1,29 @@
+.noteNew {
+  background-color: #67d7cc;
+  padding: 10px
+}
+
+textarea{
+  align-self: center;;
+  border: none;
+  resize: none;
+  background-color:#67d7cc;
+  width: 250px;
+  margin-left: 20px;
+
+}
+textarea:focus {
+  outline: none;
+}
+
+.save{
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px, 10px, 5px;
+}
+
+.save:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
