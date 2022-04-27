@@ -1,0 +1,21 @@
+.search {
+  background-color: darkgrey;
+  margin: 1px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.search input {
+  border: none;
+  background-color: darkgrey;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.btn-search {
+  border-radius: 10px;
+}

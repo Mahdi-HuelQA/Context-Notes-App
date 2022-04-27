@@ -8,15 +8,14 @@
   justify-content: space-between;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-
+  
 }
-
+ /* update margin */
 /* white-space saves spacing */
 /* overflow-wrap breaks text into new line */
 
-.note-footer{
+.note-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
