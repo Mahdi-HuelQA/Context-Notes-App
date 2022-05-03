@@ -38,7 +38,7 @@ if (characterLimit - event.target.value.length >= 0) {
       <textarea
         rows='8'
         cols='10'
-        placeholder='type to add a new note'
+        placeholder='Type to add a new note'
         value = {noteText}
         onChange={handleChange}
         onKeyDown={handleKeypress}

@@ -16,9 +16,9 @@ export const TagSearch = ({tagFilter}) => {
       setSearch("")
     };
     return (
-      <div className='search'>
+      <div className='Search'>
         <MdSearch className='search-icons' size='1.3em' />
-        <input type='text' placeholder='type to search' value = {search} onChange={handleSearch} />
+        <input type='text' placeholder='Type to search' value = {search} onChange={handleSearch} />
         <button className='btn-search' onClick={performSearch}>
           Search Tag
         </button>

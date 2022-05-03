@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { GoPlus } from "react-icons/go";
 
 export const AddTag = ({ updateTagsList }) => {
   const [createTag, setCreateTag] = useState('');
@@ -11,20 +11,21 @@ export const AddTag = ({ updateTagsList }) => {
   const performSearch = () => {
     updateTagsList(createTag);
     console.log('Tag updated');
-    setCreateTag("")
+    setCreateTag('');
   };
 
   // add reset to empty string functionality
   return (
-    <div className='search'>
+    <div className='Search'>
+    <GoPlus className='search-icons' size='1.3em' />
       <input
         type='text'
-        placeholder='type to search'
+        placeholder='Type to add'
         value={createTag}
         onChange={handleSearch}
       />
       <button className='btn-search' onClick={performSearch}>
-        add Tag
+      Add Tag
       </button>
     </div>
   );

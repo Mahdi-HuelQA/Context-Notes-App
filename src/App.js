@@ -2,42 +2,16 @@ import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
 import { Search } from './Components/Search/Search.jsx';
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { TagSearch } from './Components/TagSearch/TagSearch';
 import { AddTag } from './Components/AddTag/AddTag';
+import { Data } from './Components/Data/Data';
+import { nanoid } from 'nanoid';
+import { Header } from './Components/Header/Header';
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: 'First note',
-      date: '10/04/2022',
-      newTag: 'Food',
-    },
-    {
-      id: nanoid(),
-      text: 'Second note',
-      date: '11/04/2022',
-      newTag: 'sport',
-    },
-    {
-      id: nanoid(),
-      text: 'Third note',
-      date: '20/04/2022',
-      newTag: 'Food',
-    },
-    {
-      id: nanoid(),
-      text: 'Fourth note',
-      date: '22/04/2022',
-      newTag: 'Memory',
-    },
-  ]);
-
-  localStorage.setItem('myData', notes);
-
+  const [notes, setNotes] = useState(Data);
   const [tag, setTag] = useState('null');
-  const [tagsList, SetTagsList] = useState(['food', 'sport','memory'])
+  const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
 
   const addNote = (text) => {
     const date = new Date();
@@ -67,9 +41,11 @@ const App = () => {
   };
 
   const tagFilter = (text) => {
-    let result = notes.filter((note) => note.newTag.toLowerCase() === text.toLowerCase());
+    let result = notes.filter(
+      (note) => note.newTag.toLowerCase() === text.toLowerCase()
+    );
     console.log(result);
-    console.log("tag search done")
+    console.log('tag search done');
     // alert("Text:" + result[0].text + " date: " + result[0].date);
   };
 
@@ -80,25 +56,22 @@ const App = () => {
   // console.log('tag = ' + tag);
   console.log(notes);
 
-  // increase tags list 
-const updateTagsList = (text) => {
-  return SetTagsList([...tagsList,text])
- 
-}
+  // increase tags list
+  const updateTagsList = (text) => {
+    return SetTagsList([...tagsList, text]);
+  };
 
-console.log("tags list is  " + tagsList)
+  console.log('tags list is  ' + tagsList);
   return (
     <div className=' container'>
-      <Search searchFilter={searchFilter} />
-      <TagSearch tagFilter = {tagFilter}/>
-      <AddTag updateTagsList = {updateTagsList}/>
+      <Header />
       <NotesList
         notes={notes}
         handleAddNote={addNote}
         handleDelete={deleteNote}
         handleTag={handleTag}
-        updateTagsList = {updateTagsList}
-        tagsList = {tagsList}
+        updateTagsList={updateTagsList}
+        tagsList={tagsList}
       />
     </div>
   );

@@ -26,3 +26,7 @@ add tags to notes//
 display all notes
 display search results
 tailwind
+JEST: ensure code works
+proptypes
+then refactor 
+then react router

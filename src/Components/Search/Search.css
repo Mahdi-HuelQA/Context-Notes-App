@@ -1,21 +1,38 @@
-.search {
-  background-color: darkgrey;
+.Search {
+  /* background-color: #f64c72; */
+  background-color: #3916b7;
   margin: 1px;
   margin-bottom: 5px;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 15px;
   align-items: center;
+  color: white;
+  
+  
 }
 
-.search input {
+.Search input {
   border: none;
-  background-color: darkgrey;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 4px;
+
+
+  
 }
 
-.search input:focus {
+.Search input:focus {
   outline: none;
+  
 }
 
 .btn-search {
   border-radius: 10px;
+  background-color: #f64c72;
+  color: white;
+  padding: 4px;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 5px;
+  
 }
+
