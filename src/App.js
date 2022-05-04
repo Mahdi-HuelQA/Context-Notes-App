@@ -1,12 +1,10 @@
 import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
-import { Search } from './Components/Search/Search.jsx';
 import { useState } from 'react';
-import { TagSearch } from './Components/TagSearch/TagSearch';
-import { AddTag } from './Components/AddTag/AddTag';
 import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
+import Nav from './Components/Nav/Nav';
 
 const App = () => {
   const [notes, setNotes] = useState(Data);
@@ -62,9 +60,12 @@ const App = () => {
   };
 
   console.log('tags list is  ' + tagsList);
+
   return (
     <div className=' container'>
-      <Header />
+      <Header tagFilter = {tagFilter}
+      searchFilter = {searchFilter}
+      updateTagsList = {updateTagsList} />
       <NotesList
         notes={notes}
         handleAddNote={addNote}
@@ -73,6 +74,9 @@ const App = () => {
         updateTagsList={updateTagsList}
         tagsList={tagsList}
       />
+      {/* <div>
+        <Nav />
+      </div> */}
     </div>
   );
 };

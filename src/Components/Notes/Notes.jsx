@@ -4,7 +4,7 @@ import './Notes.css'
 
 export const Notes = ({ id, text, date, handleDelete }) => {
   return (
-    <div className='note'>
+    <div className='note' data-testid='notes'>
       <span>{text} </span>
       <div className='note-footer'>
         <small>{date}</small>
@@ -18,4 +18,5 @@ export const Notes = ({ id, text, date, handleDelete }) => {
   );
 };
 
+//test delete button is here and working (2)
 

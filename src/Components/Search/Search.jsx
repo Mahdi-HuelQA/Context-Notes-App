@@ -30,3 +30,6 @@ export const Search = ({ searchFilter }) => {
     </div>
   );
 };
+
+
+//test button renders on page and works (2)

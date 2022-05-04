@@ -1,27 +1,38 @@
 import { MdSearch } from 'react-icons/md';
 import React, { useState } from 'react';
 
-export const TagSearch = ({tagFilter}) => {
-  
-    const [search, setSearch] = useState('');
+export const TagSearch = ({ tagFilter }) => {
+  const [search, setSearch] = useState('');
 
-    const handleSearch = (e) => {
-      setSearch(e.target.value);
-      // console.log(search);
-    };
-  
-    const performSearch = () => {
-      tagFilter(search);
-      console.log('Tag component!');
-      setSearch("")
-    };
-    return (
-      <div className='Search'>
-        <MdSearch className='search-icons' size='1.3em' />
-        <input type='text' placeholder='Type to search' value = {search} onChange={handleSearch} />
-        <button className='btn-search' onClick={performSearch}>
-          Search Tag
-        </button>
-      </div>
-    );
-}
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    // console.log(search);
+  };
+
+  const performSearch = () => {
+    tagFilter(search);
+    console.log('Tag component!');
+    setSearch('');
+  };
+  return (
+    <div className='Search'>
+      <MdSearch className='search-icons' size='1.3em' />
+      <input
+        type='text'
+        placeholder='Type to search'
+        value={search}
+        onChange={handleSearch}
+      />
+      <button
+        className='btn-search'
+        data-testid='tagSearch'
+        label='Search Tag'
+        onClick={performSearch}
+      >
+        Search Tag
+      </button>
+    </div>
+  );
+};
+
+//test button renders on page and works (2)

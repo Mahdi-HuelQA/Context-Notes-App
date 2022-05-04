@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './DropDown.css';
 
 export const DropDown = ({ handleTag, updateTagsList,tagsList }) => {
 
-  const tagSetter = (text) => {
-    handleTag(text);
-  };
+  // const tagSetter = (text) => {
+  //   handleTag(text);
+  // };
 
   
 // create temp state that will pick up tag text
@@ -27,7 +27,7 @@ export const DropDown = ({ handleTag, updateTagsList,tagsList }) => {
     <div className='dropdown'>
       <button className ='dropbtn'>Tag selector</button>
       <div className='dropdown-content'>
-          {tagsList.map(element => {
+          {tagsList?.map(element => {
   
    return <button onClick={tagSetter => {handleTag(element)}}>
             {element}

@@ -4,14 +4,14 @@ import { Search } from '../Search/Search';
 import { AddTag } from '../AddTag/AddTag';
 import './Header.css'
 
-export const Header = () => {
+export const Header = ({tagFilter, searchFilter, updateTagsList}) => {
   
   return (
     <div className='Header'>
     
-      <Search />
-      <TagSearch />
-      <AddTag />
+      <Search searchFilter={searchFilter}/>
+      <TagSearch tagFilter={tagFilter} />
+      <AddTag updateTagsList = {updateTagsList}/>
     </div>
   );
 };
