@@ -2,6 +2,8 @@ import React from 'react';
 import './AddNote.css';
 import { useState } from 'react';
 import { DropDown } from '../Dropdown/DropDown';
+import ToastButton from '../ToastNotification/Toast';
+import {toast } from 'react-toastify';
 
 export const AddNote = ({handleAddNote, handleTag, updateTagsList, tagsList}) => {
   const [noteText, setNoteText] = useState('');
@@ -19,6 +21,7 @@ if (characterLimit - event.target.value.length >= 0) {
     handleAddNote(noteText)
     }setNoteText(' ')
     console.log("handle save")
+    notify()
    }
 
    const handleKeypress = e => {
@@ -31,6 +34,8 @@ if (characterLimit - event.target.value.length >= 0) {
 
   }}
 
+
+  const notify = () => toast.dark("Saved");
 
 
   return ( 
@@ -45,7 +50,7 @@ if (characterLimit - event.target.value.length >= 0) {
       ></textarea>
       <div className='note-footer'>
         <small> {characterLimit - noteText.length} remaining</small>
-        <button className='save' onClick={handleSaveClick} > Save</button>
+        <ToastButton  className='save' handleSaveClick={handleSaveClick} > </ToastButton>
         <DropDown  handleTag= {handleTag} updateTagsList = {updateTagsList} tagsList = {tagsList} />
       </div>
     </div>

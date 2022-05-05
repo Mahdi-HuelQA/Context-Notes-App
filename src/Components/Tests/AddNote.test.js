@@ -1,6 +1,7 @@
 import React from 'react';
 import { AddNote } from '../AddNote/AddNote';
 import { render, screen } from '@testing-library/react';
+import ToastButton from '../ToastNotification/Toast';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('TagSearch', () => {
@@ -12,10 +13,10 @@ describe('TagSearch', () => {
   });
 
   it('Add note component renders correctly', () => {
-    render(<AddNote />);
-    const element = screen.getByTestId('addNote');
+    render(<ToastButton />);
+    const element = screen.getByTestId('toastbtn');
 
-    expect(element).toHaveTextContent('Save');
+    expect(element).toHaveTextContent('Add Note');
   });
 
   it('Save note button is enabled', () => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GoPlus } from "react-icons/go";
 
+
 export const AddTag = ({ updateTagsList }) => {
   const [createTag, setCreateTag] = useState('');
 
