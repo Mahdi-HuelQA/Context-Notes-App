@@ -34,7 +34,7 @@ if (characterLimit - event.target.value.length >= 0) {
 
 
   return ( 
-    <div className=' noteNew'>
+    <div className=' noteNew' data-testid='addNote'>
       <textarea
         rows='8'
         cols='10'

@@ -32,12 +32,12 @@ describe('NotesList', () => {
     expect(notes[1]).toHaveTextContent('Second note');
   });
 
-  // it('Note has a Tag', () => {
-  //   render(<NotesList notes={data} />);
+  it('Note has a Tag', () => {
+    render(<NotesList notes={data} />);
 
-  //   const parent = screen.getAllByTestId('notes');
-  //   expect(parent[1]).toContain('sport')
-  // });
+    const notes = screen.getAllByTestId('notes');
+    expect(notes[1]).toHaveTextContent('11/04/2022');
+    
+  });
 });
 
-//   });

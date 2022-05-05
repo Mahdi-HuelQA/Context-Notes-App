@@ -16,7 +16,7 @@ export const AddTag = ({ updateTagsList }) => {
 
   // add reset to empty string functionality
   return (
-    <div className='Search'>
+    <div className='Search' data-testid='add'>
     <GoPlus className='search-icons' size='1.3em' />
       <input
         type='text'

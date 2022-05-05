@@ -14,7 +14,7 @@ describe('TagSearch', () => {
     render(<TagSearch />, div);
   });
 
-  it('renders button correctly', () => {
+  it('Search button renders correctly', () => {
     // const { getByTestId } = renderComponent('Search Tag');
     // const input = getByTestId('tagSearch');
 
@@ -23,4 +23,16 @@ describe('TagSearch', () => {
 
     expect(element).toHaveTextContent('Search Tag');
   });
+
+
+  it('button is enabled', () => {
+    // const { getByTestId } = renderComponent('Search Tag');
+    // const input = getByTestId('tagSearch');
+
+    render(<TagSearch />);
+    const element = screen.getByTestId('tagSearch');
+    expect(element).toBeEnabled()
+    
+  });
+  
 });
