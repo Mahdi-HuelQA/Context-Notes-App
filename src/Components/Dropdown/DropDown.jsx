@@ -1,8 +1,9 @@
 import React from 'react';
 import './DropDown.css';
 import TagToast from '../ToastNotification/TagToast';
+import {toast } from 'react-toastify';
 
-export const DropDown = ({ handleTag, updateTagsList,tagsList }) => {
+export const DropDown = ({ handleTag, handleToast,tagsList }) => {
 
   // const tagSetter = (text) => {
   //   handleTag(text);
@@ -23,8 +24,11 @@ export const DropDown = ({ handleTag, updateTagsList,tagsList }) => {
 
 // });
 
+const handleTagsFunctionality = (e) => {
+  handleTag(e)
+  handleToast()
+}
 
-// const handleToast  = () => {} 
 
 
 
@@ -35,7 +39,7 @@ export const DropDown = ({ handleTag, updateTagsList,tagsList }) => {
       <div className='dropdown-content'>
           {tagsList?.map(element => {
   
-   return <button onClick={tagSetter => {handleTag(element)}}>
+   return <button onClick={handleTagsFunctionality}>
             {element}
           </button>
   

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
+import { AddNote } from './Components/AddNote/AddNote';
 import Nav from './Components/Nav/Nav';
 
 const App = () => {
@@ -74,6 +75,7 @@ const App = () => {
         updateTagsList={updateTagsList}
         tagsList={tagsList}
       />
+     <AddNote handleAddNote = {addNote} handleTag = {handleTag} updateTagsList = {updateTagsList} tagsList = {tagsList} />
       {/* <div>
         <Nav />
       </div> */}

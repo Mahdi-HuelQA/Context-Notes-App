@@ -3,6 +3,20 @@
   background-color: #2f2fa2;
   padding: 10px;
   border-radius: 10px;
+  margin-top: 10px;
+
+  /* extra */
+  
+  min-height: 170px;
+  padding: 1rem;
+  border-radius: 10px;
+  
+  justify-content: space-between;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: whitesmoke;
 }
 
 textarea{
@@ -11,6 +25,7 @@ textarea{
   resize: none;
   background-color: #2f2fa2;
   width: 100%;
+  color: white;
   /* 100% fill space of container in this fix */
   /* margin-left: 20px; old hacky way*/ 
 
@@ -31,3 +46,4 @@ textarea:focus {
   background-color: #ededed;
   cursor: pointer;
 }
+
