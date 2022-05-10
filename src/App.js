@@ -5,10 +5,14 @@ import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
 import { AddNote } from './Components/AddNote/AddNote';
+import DisplaySearchNotes from './Components/Display/DisplaySearchNotes';
 import Nav from './Components/Nav/Nav';
+
 
 const App = () => {
   const [notes, setNotes] = useState(Data);
+  const [search,setSearch] = useState(notes)
+  const [searchToggle,setSearchToggle] = useState(notes)
   const [tag, setTag] = useState('null');
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
 
@@ -44,6 +48,10 @@ const App = () => {
       (note) => note.newTag.toLowerCase() === text.toLowerCase()
     );
     console.log(result);
+    //test state for search 
+    setNotes(result)
+ 
+     
     console.log('tag search done');
     // alert("Text:" + result[0].text + " date: " + result[0].date);
   };
@@ -58,6 +66,10 @@ const App = () => {
   // increase tags list
   const updateTagsList = (text) => {
     return SetTagsList([...tagsList, text]);
+
+    // notes display search
+
+
   };
 
   console.log('tags list is  ' + tagsList);
@@ -76,6 +88,12 @@ const App = () => {
         tagsList={tagsList}
       />
      <AddNote handleAddNote = {addNote} handleTag = {handleTag} updateTagsList = {updateTagsList} tagsList = {tagsList} />
+     {/* <DisplaySearchNotes    notes={notes}
+        handleAddNote={addNote}
+        handleDelete={deleteNote}
+        tagFilter = {tagFilter}
+        
+        /> */}
       {/* <div>
         <Nav />
       </div> */}
