@@ -23,10 +23,16 @@ useref?
 search by partial string next step
 tag filter//
 add tags to notes//
-display all notes
-display search results
+display all notes//
+display search results//
+if empty dont create button//
 tailwind
 JEST: ensure code works
 proptypes
 then refactor 
 then react router
+use json  file as db to store notes against users/
+create db
+link to db
+create auth profile
+link to user

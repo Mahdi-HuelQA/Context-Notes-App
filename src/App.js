@@ -5,17 +5,21 @@ import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
 import { AddNote } from './Components/AddNote/AddNote';
-import DisplaySearchNotes from './Components/Display/DisplaySearchNotes';
-import Nav from './Components/Nav/Nav';
-
+import Profile from './Components/Authentication/Profile/Profile';
+import { useAuth0 } from '@auth0/auth0-react';
+import LogInButton from './Components/Authentication/LogIn/LogIn';
+import LogOutButton from './Components/Authentication/LogOut/LogOut';
+// import Nav from './Components/Nav/Nav';
 
 const App = () => {
   const [notes, setNotes] = useState(Data);
-  const [search,setSearch] = useState(notes)
-  const [searchToggle,setSearchToggle] = useState(notes)
+  const [search, setSearch] = useState(notes);
+  const { user, isAuthenticated } = useAuth0();
+  const [searchToggle, setSearchToggle] = useState(false);
   const [tag, setTag] = useState('null');
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
 
+  // Add function
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -27,6 +31,8 @@ const App = () => {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
+
+  // Delete function
   const deleteNote = (id) => {
     console.log('delete');
     console.log(notes);
@@ -35,25 +41,38 @@ const App = () => {
     setNotes(total);
   };
 
+  // search text
   const searchFilter = (text) => {
+    setSearchToggle(true);
     let result = notes.filter(
-      (note) => note.text.toLowerCase() === text.toLowerCase()
+      // (note) => note.text.toLowerCase() === text.toLowerCase()
+       (note) => note.text.toLowerCase().includes(text.toLowerCase())
     );
-    console.log(result);
-    // alert("Text:" + result[0].text + " date: " + result[0].date);
+
+    //test state for search
+    setSearch(result);
+    if (result.length === 0) {
+      setSearchToggle(false);
+    }
+    console.log('text search done');
   };
 
+  // search tags
   const tagFilter = (text) => {
+    setSearchToggle(true);
+
     let result = notes.filter(
       (note) => note.newTag.toLowerCase() === text.toLowerCase()
     );
     console.log(result);
-    //test state for search 
-    setNotes(result)
- 
-     
+    //test state for search
+
+    setSearch(result);
+
+    if (result.length === 0) {
+      setSearchToggle(false);
+    }
     console.log('tag search done');
-    // alert("Text:" + result[0].text + " date: " + result[0].date);
   };
 
   // Set new tag function
@@ -65,35 +84,40 @@ const App = () => {
 
   // increase tags list
   const updateTagsList = (text) => {
+    if (text.length !== 0) 
     return SetTagsList([...tagsList, text]);
 
     // notes display search
-
-
   };
-
   console.log('tags list is  ' + tagsList);
 
-  return (
+  return  (
     <div className=' container'>
-      <Header tagFilter = {tagFilter}
-      searchFilter = {searchFilter}
-      updateTagsList = {updateTagsList} />
+      <Header
+        tagFilter={tagFilter}
+        searchFilter={searchFilter}
+        updateTagsList={updateTagsList}
+      />
       <NotesList
-        notes={notes}
+        notes={searchToggle ? search : notes}
         handleAddNote={addNote}
         handleDelete={deleteNote}
         handleTag={handleTag}
         updateTagsList={updateTagsList}
         tagsList={tagsList}
       />
-     <AddNote handleAddNote = {addNote} handleTag = {handleTag} updateTagsList = {updateTagsList} tagsList = {tagsList} />
-     {/* <DisplaySearchNotes    notes={notes}
+      <AddNote
         handleAddNote={addNote}
-        handleDelete={deleteNote}
-        tagFilter = {tagFilter}
-        
-        /> */}
+        handleTag={handleTag}
+        updateTagsList={updateTagsList}
+        tagsList={tagsList}
+      />
+      
+      <div className='info'>
+            <Profile />
+
+            {isAuthenticated ? <LogOutButton /> : <LogInButton />}
+          </div>
       {/* <div>
         <Nav />
       </div> */}

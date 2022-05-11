@@ -1,12 +1,11 @@
 import React from 'react';
 import './DropDown.css';
-import TagToast from '../ToastNotification/TagToast';
-import { toast } from 'react-toastify';
+
 
 export const DropDown = ({ handleTag, handleToast, tagsList }) => {
-  const tagSetter = (text) => {
-    handleTag(text);
-  };
+  // const tagSetter = (text) => {
+  //   handleTag(text);
+  // };
 
   // create temp state that will pick up tag text
   //btn to set new state

@@ -8,19 +8,19 @@ export const Data = [{
 },
 {
   id: nanoid(),
-  text: 'Second note',
+  text: 'Second',
   date: '11/04/2022',
   newTag: 'sport',
 },
 {
   id: nanoid(),
-  text: 'Third note',
+  text: 'Third',
   date: '20/04/2022',
   newTag: 'Food',
 },
 {
   id: nanoid(),
-  text: 'Fourth note',
+  text: 'Fourth',
   date: '22/04/2022',
   newTag: 'Memory',
 },

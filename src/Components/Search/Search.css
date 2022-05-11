@@ -1,12 +1,13 @@
 .Search {
   /* background-color: #f64c72; */
-  background-color: #3916b7;
+  background-color: #E57F84;
   margin: 1px;
   margin-bottom: 5px;
   padding: 5px;
   border-radius: 15px;
   align-items: center;
   color: white;
+  margin-top: 5px;
   
   
 }
@@ -28,7 +29,7 @@
 
 .btn-search {
   border-radius: 10px;
-  background-color: #f64c72;
+  background-color: #2F5061;
   color: white;
   padding: 4px;
   font-family: 'Roboto', sans-serif;

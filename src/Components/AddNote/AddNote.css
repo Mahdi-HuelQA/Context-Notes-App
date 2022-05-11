@@ -1,6 +1,6 @@
 .noteNew {
   /* background-color: #67d7cc; */
-  background-color: #2f2fa2;
+  background-color: #E57F84;
   padding: 10px;
   border-radius: 10px;
   margin-top: 10px;
@@ -24,9 +24,10 @@ textarea{
   align-self: center;;
   border: none;
   resize: none;
-  background-color: #2f2fa2;
+  background-color: #E57F84;
   width: 100%;
   color: white;
+  border-style: dashed;
   /* 100% fill space of container in this fix */
   /* margin-left: 20px; old hacky way*/ 
 
