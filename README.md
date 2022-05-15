@@ -15,12 +15,12 @@ name params if multiple
 add rating for level of importance
 delete all option
 API fETCH request: maybe moving banner at the top (loop)
-integrate data into project
-Authentication
+integrate data into project//
+Authentication//
 toggle dark mode
 bug: when there are only 2 notes left size is off
 useref?
-search by partial string next step
+search by partial string match next step//
 tag filter//
 add tags to notes//
 display all notes//

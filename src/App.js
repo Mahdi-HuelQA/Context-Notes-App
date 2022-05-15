@@ -1,6 +1,6 @@
 import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
@@ -27,6 +27,9 @@ const App = () => {
       text: text,
       date: date.toLocaleDateString(),
       newTag: tag,
+      name:  isAuthenticated ? user.name : 'No User',
+      email:  isAuthenticated ? user.email : 'No Email'
+      //set default user
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
@@ -46,7 +49,7 @@ const App = () => {
     setSearchToggle(true);
     let result = notes.filter(
       // (note) => note.text.toLowerCase() === text.toLowerCase()
-       (note) => note.text.toLowerCase().includes(text.toLowerCase())
+      (note) => note.text.toLowerCase().includes(text.toLowerCase())
     );
 
     //test state for search
@@ -84,15 +87,23 @@ const App = () => {
 
   // increase tags list
   const updateTagsList = (text) => {
-    if (text.length !== 0) 
-    return SetTagsList([...tagsList, text]);
+    if (text.length !== 0) return SetTagsList([...tagsList, text]);
 
     // notes display search
   };
-  console.log('tags list is  ' + tagsList);
 
-  return  (
-    <div className=' container'>
+  // add user name to data objectFit: done above in add note
+
+  // dont refresh when user state changes
+
+  useEffect(() => {
+  
+  },[notes,user]);
+  console.log('tags list is  ' + tagsList);
+  console.log(user);
+
+  return (
+    <div className='container'>
       <Header
         tagFilter={tagFilter}
         searchFilter={searchFilter}
@@ -112,15 +123,12 @@ const App = () => {
         updateTagsList={updateTagsList}
         tagsList={tagsList}
       />
-      
-      <div className='info'>
-            <Profile />
 
-            {isAuthenticated ? <LogOutButton /> : <LogInButton />}
-          </div>
-      {/* <div>
-        <Nav />
-      </div> */}
+      <div className='info'>
+        {/* <Profile /> */}
+
+        {isAuthenticated ? <LogOutButton /> : <LogInButton />}
+      </div>
     </div>
   );
 };

@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Auth0Provider
-    domain="mahdi-test.eu.auth0.com"
-    clientId="25Nwy27CRX5Q3ucLmek0NDGwzKEk3baU"
-    redirectUri={window.location.origin}>
-  
-    <App />
-    </Auth0Provider>,
+      domain='mahdi-test.eu.auth0.com'
+      clientId='25Nwy27CRX5Q3ucLmek0NDGwzKEk3baU'
+      redirectUri={window.location.origin}
+    >
+      <App />
+    </Auth0Provider>
+    ,
   </React.StrictMode>
 );
 

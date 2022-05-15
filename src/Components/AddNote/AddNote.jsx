@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { DropDown } from '../Dropdown/DropDown';
 import ToastButton from '../ToastNotification/AddToast';
 import { toast } from 'react-toastify';
+import Profile from '../Authentication/Profile/Profile';
 
 export const AddNote = ({
   handleAddNote,
@@ -69,6 +70,7 @@ export const AddNote = ({
           handleToast={handleToast}
         />
       </div>
+      <Profile/>
     </div>
   );
 };

@@ -23,16 +23,16 @@ export const DropDown = ({ handleTag, handleToast, tagsList }) => {
 
   const handleTagsFunctionality = (element) => {
     handleTag(element);
-    handleToast();
+    // handleToast();
   };
 
   return (
     <div className='dropdown'>
       <button className='dropbtn'>Tag selector</button>
       <div className='dropdown-content'>
-        {tagsList?.map((element) => {
+        {tagsList?.map((element, index) => {
           return (
-            <button onClick={() => handleTagsFunctionality(element)}>
+            <button onClick={() => handleTagsFunctionality(element)} key = {index}>
               {element}
             </button>
           );
