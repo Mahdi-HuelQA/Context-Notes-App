@@ -9,6 +9,7 @@ import Profile from './Components/Authentication/Profile/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import LogInButton from './Components/Authentication/LogIn/LogIn';
 import LogOutButton from './Components/Authentication/LogOut/LogOut';
+import Quotes from './Components/Quotes/Quotes';
 // import Nav from './Components/Nav/Nav';
 
 const App = () => {
@@ -94,15 +95,7 @@ const App = () => {
 
   // add user name to data objectFit: done above in add note
 
-  //fetch Quotes 
-
-  async function fetchText() {
-    let response = await fetch('https://type.fit/api/quotes');
-    let data = await response.text();
-    console.log(data);
-}
-
-fetchText()
+  
 
 
   console.log('tags list is  ' + tagsList);
@@ -117,6 +110,7 @@ fetchText()
         searchFilter={searchFilter}
         updateTagsList={updateTagsList}
       />
+      <Quotes/>
       <NotesList
         notes={searchToggle ? search : notes}
         handleAddNote={addNote}
