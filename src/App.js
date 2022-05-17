@@ -27,8 +27,8 @@ const App = () => {
       text: text,
       date: date.toLocaleDateString(),
       newTag: tag,
-      name:  isAuthenticated ? user.name : 'No User',
-      email:  isAuthenticated ? user.email : 'No Email'
+      name: isAuthenticated ? user.name : 'No User',
+      email: isAuthenticated ? user.email : 'No Email',
       //set default user
     };
     const newNotes = [...notes, newNote];
@@ -94,13 +94,21 @@ const App = () => {
 
   // add user name to data objectFit: done above in add note
 
-  // dont refresh when user state changes
+  //fetch Quotes 
 
-  useEffect(() => {
-  
-  },[notes,user]);
+  async function fetchText() {
+    let response = await fetch('https://type.fit/api/quotes');
+    let data = await response.text();
+    console.log(data);
+}
+
+fetchText()
+
+
   console.log('tags list is  ' + tagsList);
   console.log(user);
+
+
 
   return (
     <div className='container'>

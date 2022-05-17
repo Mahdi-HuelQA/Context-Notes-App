@@ -36,11 +36,12 @@ const Profile = () => {
 
     getUserMetadata();
   }, [getAccessTokenSilently, user]);
+
   return (
     isAuthenticated && (
       <div>
         {/* <img src={user.picture} alt={user.name} /> */}
-        <h3>Welcome Back {user.nickname}</h3>
+        <h3> {user.nickname}</h3>
         <img src={user.picture} alt='user'></img>
         {/* <p>{user.email}</p>
         <h3>User Metadata</h3> */}

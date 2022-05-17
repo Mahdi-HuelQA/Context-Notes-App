@@ -6,7 +6,7 @@ save search input//
 create function to filter using that input vs saved notes//
 search on enter
 displat result
-improve styling
+improve styling//
 use BEM
 replace px with REM
 time 1.03.
@@ -27,12 +27,12 @@ display all notes//
 display search results//
 if empty dont create button//
 tailwind
-JEST: ensure code works
+JEST: ensure code works//
 proptypes
 then refactor 
 then react router
 use json  file as db to store notes against users/
 create db
 link to db
-create auth profile
-link to user
+create auth profile//
+link to user//

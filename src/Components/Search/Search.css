@@ -1,6 +1,6 @@
 .Search {
   /* background-color: #f64c72; */
-  background-color: #E57F84;
+  background-color: #f64c72;
   margin: 1px;
   margin-bottom: 5px;
   padding: 5px;
@@ -29,7 +29,7 @@
 
 .btn-search {
   border-radius: 10px;
-  background-color: #2F5061;
+  background-color: #4297A0;
   color: white;
   padding: 4px;
   font-family: 'Roboto', sans-serif;
