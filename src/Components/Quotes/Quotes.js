@@ -4,7 +4,7 @@ import './Quotes.css';
 
 const Quotes = () => {
   const [quote, setQuote] = useState([]);
- 
+
   //fetch Quotes
   const calc = () => {
     return Math.floor(Math.random() * 100) + 1;
@@ -28,11 +28,6 @@ const Quotes = () => {
 
   return (
     <div id='container'>
-      {/* <header>
-    <h1>Animated Photo Banner</h1>
-    <p>Lorem ipsum dolor...</p>
-  </header> */}
-
       <div class='photobanner'>
         <span class='first'>{quote.text} </span>
       </div>

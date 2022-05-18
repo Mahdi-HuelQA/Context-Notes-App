@@ -95,13 +95,8 @@ const App = () => {
 
   // add user name to data objectFit: done above in add note
 
-  
-
-
   console.log('tags list is  ' + tagsList);
   console.log(user);
-
-
 
   return (
     <div className='container'>
@@ -110,7 +105,7 @@ const App = () => {
         searchFilter={searchFilter}
         updateTagsList={updateTagsList}
       />
-      <Quotes/>
+      <Quotes />
       <NotesList
         notes={searchToggle ? search : notes}
         handleAddNote={addNote}

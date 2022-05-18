@@ -7,15 +7,13 @@
   height: 30px;
   font-style: italic;
   font-weight: 400;
-  text-shadow:2px;
-  
+  text-shadow: 2px;
 }
 
 /*header*/
 header {
   width: 800px;
   /* margin: 40px auto; */
-
 }
 
 /* header h1 {
@@ -48,7 +46,7 @@ span {
 }
 
 .second {
-  animation:  5.5s ;
+  animation: 5.5s;
 }
 
 @keyframes bannermove {
