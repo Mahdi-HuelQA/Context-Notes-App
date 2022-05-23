@@ -36,3 +36,5 @@ create db
 link to db
 create auth profile//
 link to user//
+60-30-10 colour rule
+npm shorthand 
