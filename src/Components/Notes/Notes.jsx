@@ -5,7 +5,7 @@ import './Notes.css'
 export const Notes = ({ id, text, date, handleDelete }) => {
   return (
     <div className='note' data-testid='notes'>
-      <span>{text} </span>
+      <span  className='text-block'>{text} </span>
       <div className='note-footer'>
         <small>{date}</small>
         <MdDeleteForever

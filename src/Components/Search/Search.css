@@ -1,12 +1,12 @@
 .Search {
   /* background-color: #f64c72; */
-  background-color: #f64c72;
+  /* background-color: #f64c72; */
   margin: 1px;
   margin-bottom: 5px;
   padding: 5px;
   border-radius: 15px;
   align-items: center;
-  color: white;
+  color:#f58523;
   margin-top: 5px;
   
   
@@ -15,8 +15,10 @@
 .Search input {
   border: none;
   background-color: whitesmoke;
+  /* background-color: #0b0b0b; */
   border-radius: 10px;
   padding: 4px;
+  color: white;
 
 
   
@@ -29,8 +31,9 @@
 
 .btn-search {
   border-radius: 10px;
-  background-color: #4297A0;
-  color: white;
+  /* background-color: #4297A0; */
+  background-color: white;
+  color: #0b0b0b;
   padding: 4px;
   font-family: 'Roboto', sans-serif;
   margin-left: 5px;

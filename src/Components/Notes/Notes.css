@@ -1,8 +1,10 @@
 .note {
-  background-color: #4297A0;
+  /* background-color: #4297A0; */
+  background-color: white;
   min-height: 170px;
   padding: 1rem;
   border-radius: 10px;
+  border-width: 1px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,7 +12,10 @@
   overflow-wrap: break-word;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: whitesmoke;
+  /* color: whitesmoke; */
+  color: #0b0b0b;
+  border: #0b0b0b;
+  border-style: solid;
   
 }
  /* update margin */
@@ -21,4 +26,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.delete-icon {
+color:#f58523;;
+}
+.text-block {
+  display: inline-block;
+  text-align: left;
+  overflow: hidden;
 }
