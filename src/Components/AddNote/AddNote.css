@@ -37,7 +37,7 @@ textarea {
 }
 textarea:focus {
   outline: none;
-  color: white;
+  color: black;
 }
 
 .save {

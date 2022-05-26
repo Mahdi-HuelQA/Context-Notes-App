@@ -1,6 +1,6 @@
 import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
@@ -10,6 +10,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 import LogInButton from './Components/Authentication/LogIn/LogIn';
 import LogOutButton from './Components/Authentication/LogOut/LogOut';
 import Quotes from './Components/Quotes/Quotes';
+import ContextConfig from './Components/ContextConfig/ContextConfig';
+import React from 'react'
+export const ThemeContext = React.createContext()
 // import Nav from './Components/Nav/Nav';
 
 const App = () => {
@@ -19,6 +22,7 @@ const App = () => {
   const [searchToggle, setSearchToggle] = useState(false);
   const [tag, setTag] = useState('null');
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
+  const [darktheme, setDarkTheme] = useState(true)
 
   // Add function
   const addNote = (text) => {
@@ -95,10 +99,20 @@ const App = () => {
 
   // add user name to data objectFit: done above in add note
 
+  //Darktheme Toggle
+
+  const toggleTheme = () => {
+    setDarkTheme(prevDarkTheme => !prevDarkTheme)
+    console.log(darktheme)
+
+  }
+
   console.log('tags list is  ' + tagsList);
   console.log(user);
 
   return (
+    <>
+    <ThemeContext.Provider value = {darktheme}>
     <div className='container'>
       <Header
         tagFilter={tagFilter}
@@ -125,8 +139,12 @@ const App = () => {
         {/* <Profile /> */}
 
         {isAuthenticated ? <LogOutButton /> : <LogInButton />}
+        <ContextConfig toggleTheme = {toggleTheme}/>
+        <button onClick = {toggleTheme}>toggle</button>
       </div>
     </div>
+    </ThemeContext.Provider>
+    </>
   );
 };
 
