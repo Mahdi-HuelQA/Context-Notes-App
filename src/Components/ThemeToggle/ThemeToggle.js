@@ -18,7 +18,10 @@ const ThemeToggle = ({ toggleTheme }) => {
   const themeStyles = {
     backgroundColor: darkTheme ?  '#333' : '#ccc',
     color: darkTheme ? '#f58523' : '#0b0b0b',
-    marginTop: '17px'
+    marginTop: '17px',
+    height: '17px',
+    width: '17px'
+
     
   };
 

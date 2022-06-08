@@ -4,8 +4,11 @@ import { useState,useContext } from 'react';
 import { DropDown } from '../Dropdown/DropDown';
 import ToastButton from '../ToastNotification/AddToast';
 import { toast } from 'react-toastify';
-import Profile from '../Authentication/Profile/Profile';
 import { ThemeContext } from '../../App';
+import { useAuth0 } from '@auth0/auth0-react';
+import LogInButton from '../Authentication/LogIn/LogIn';
+import LogOutButton from '../Authentication/LogOut/LogOut';
+
 // import { height } from '@mui/system';
 
 
@@ -16,6 +19,7 @@ export const AddNote = ({
   tagsList,
 }) => {
   const [noteText, setNoteText] = useState('');
+  const { user, isAuthenticated } = useAuth0();
   const characterLimit = 200;
 
   const handleChange = (event) => {
@@ -85,7 +89,7 @@ export const AddNote = ({
         <small data-testid='addLimitText'>
           {characterLimit - noteText.length} remaining
         </small>
-        <ToastButton className='save' handleSaveClick={handleSaveClick}>
+        <ToastButton className='save' handleSaveClick={handleSaveClick} user = {user}>
           {' '}
         </ToastButton>
         <DropDown
@@ -95,7 +99,7 @@ export const AddNote = ({
           handleToast={handleToast}
         />
       </div>
-      {/* <Profile/> */}
+     {isAuthenticated ? <LogOutButton /> : <LogInButton />}
     </div>
   );
 };

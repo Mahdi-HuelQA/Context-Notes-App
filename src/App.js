@@ -5,12 +5,8 @@ import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
 import { AddNote } from './Components/AddNote/AddNote';
-import Profile from './Components/Authentication/Profile/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
-import LogInButton from './Components/Authentication/LogIn/LogIn';
-import LogOutButton from './Components/Authentication/LogOut/LogOut';
 import Quotes from './Components/Quotes/Quotes';
-import ContextConfig from './Components/ContextConfig/ContextConfig';
 import React from 'react';
 export const ThemeContext = React.createContext();
 // import Nav from './Components/Nav/Nav';
@@ -137,8 +133,6 @@ const App = () => {
 
           <div className='info'>
             {/* <Profile /> */}
-
-            {isAuthenticated ? <LogOutButton /> : <LogInButton />}
           </div>
         </div>
       </ThemeContext.Provider>
