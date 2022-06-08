@@ -42,3 +42,4 @@ edit
 theme toggle button: hover
 image upload
 change object to accomodate images
+move toggle button to top
