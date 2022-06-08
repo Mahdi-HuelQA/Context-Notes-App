@@ -1,10 +1,13 @@
 import React from 'react';
 import './AddNote.css';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { DropDown } from '../Dropdown/DropDown';
 import ToastButton from '../ToastNotification/AddToast';
 import { toast } from 'react-toastify';
 import Profile from '../Authentication/Profile/Profile';
+import { ThemeContext } from '../../App';
+// import { height } from '@mui/system';
+
 
 export const AddNote = ({
   handleAddNote,
@@ -45,8 +48,30 @@ export const AddNote = ({
 
   const notify = () => toast.dark('Saved');
 
+
+  const darkTheme = useContext(ThemeContext);
+  const themeStyles = {
+    backgroundColor: darkTheme ? '#333' : 'whitesmoke',
+    color: darkTheme ?  '#f58523' : '#0b0b0b',
+    padding: '10px',
+    borderRadius:'10px',
+    marginTop:  '10px',
+    marginBottom: '10px',
+  
+    /* extra */
+  
+    minHeight: '170px',
+    justifyContent: 'space-between',
+    whiteSpace: 'pre-wrap',
+    overflow: 'break-word',
+    fontFamily:'Roboto sans-serif',
+    fontWeight:  '500',
+    borderColor: '#0b0b0b',
+    borderStyle:'groove',
+  };
+
   return (
-    <div className=' noteNew' data-testid='addNote'>
+    <div style={themeStyles} data-testid='addNote'>
       <textarea
         data-testid='addLimit'
         rows='8'

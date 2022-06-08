@@ -38,3 +38,7 @@ create auth profile//
 link to user//
 60-30-10 colour rule
 npm shorthand 
+edit
+theme toggle button: hover
+image upload
+change object to accomodate images

@@ -140,7 +140,7 @@ const App = () => {
 
         {isAuthenticated ? <LogOutButton /> : <LogInButton />}
         <ContextConfig toggleTheme = {toggleTheme}/>
-        <button onClick = {toggleTheme}>toggle</button>
+        <button onClick = {toggleTheme}>Toggle</button>
       </div>
     </div>
     </ThemeContext.Provider>
