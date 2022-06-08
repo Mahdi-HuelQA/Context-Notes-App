@@ -4,8 +4,9 @@ import { Search } from '../Search/Search';
 import { AddTag } from '../AddTag/AddTag';
 import './Header.css';
 import { ThemeContext } from '../../App';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
-export const Header = ({ tagFilter, searchFilter, updateTagsList }) => {
+export const Header = ({ tagFilter, searchFilter, updateTagsList,toggleTheme }) => {
   const darkTheme = useContext(ThemeContext);
   const themeStyles = {
     backgroundColor: darkTheme ?   '#333':'#ccc',
@@ -24,6 +25,7 @@ export const Header = ({ tagFilter, searchFilter, updateTagsList }) => {
       <Search searchFilter={searchFilter} />
       <TagSearch tagFilter={tagFilter} />
       <AddTag updateTagsList={updateTagsList} />
+      <ThemeToggle toggleTheme={toggleTheme}/>
     </div>
   );
 };

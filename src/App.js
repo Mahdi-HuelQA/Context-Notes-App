@@ -11,8 +11,8 @@ import LogInButton from './Components/Authentication/LogIn/LogIn';
 import LogOutButton from './Components/Authentication/LogOut/LogOut';
 import Quotes from './Components/Quotes/Quotes';
 import ContextConfig from './Components/ContextConfig/ContextConfig';
-import React from 'react'
-export const ThemeContext = React.createContext()
+import React from 'react';
+export const ThemeContext = React.createContext();
 // import Nav from './Components/Nav/Nav';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
   const [searchToggle, setSearchToggle] = useState(false);
   const [tag, setTag] = useState('null');
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
-  const [darktheme, setDarkTheme] = useState(true)
+  const [darktheme, setDarkTheme] = useState(true);
 
   // Add function
   const addNote = (text) => {
@@ -102,48 +102,46 @@ const App = () => {
   //Darktheme Toggle
 
   const toggleTheme = () => {
-    setDarkTheme(prevDarkTheme => !prevDarkTheme)
-    console.log(darktheme)
-
-  }
+    setDarkTheme((prevDarkTheme) => !prevDarkTheme);
+    console.log(darktheme);
+  };
 
   console.log('tags list is  ' + tagsList);
   console.log(user);
 
   return (
     <>
-    <ThemeContext.Provider value = {darktheme}>
-    <div className='container'>
-      <Header
-        tagFilter={tagFilter}
-        searchFilter={searchFilter}
-        updateTagsList={updateTagsList}
-      />
-      <Quotes />
-      <NotesList
-        notes={searchToggle ? search : notes}
-        handleAddNote={addNote}
-        handleDelete={deleteNote}
-        handleTag={handleTag}
-        updateTagsList={updateTagsList}
-        tagsList={tagsList}
-      />
-      <AddNote
-        handleAddNote={addNote}
-        handleTag={handleTag}
-        updateTagsList={updateTagsList}
-        tagsList={tagsList}
-      />
+      <ThemeContext.Provider value={darktheme}>
+        <div className='container'>
+          <Header
+            tagFilter={tagFilter}
+            searchFilter={searchFilter}
+            updateTagsList={updateTagsList}
+            toggleTheme={toggleTheme}
+          />
+          <Quotes />
+          <NotesList
+            notes={searchToggle ? search : notes}
+            handleAddNote={addNote}
+            handleDelete={deleteNote}
+            handleTag={handleTag}
+            updateTagsList={updateTagsList}
+            tagsList={tagsList}
+          />
+          <AddNote
+            handleAddNote={addNote}
+            handleTag={handleTag}
+            updateTagsList={updateTagsList}
+            tagsList={tagsList}
+          />
 
-      <div className='info'>
-        {/* <Profile /> */}
+          <div className='info'>
+            {/* <Profile /> */}
 
-        {isAuthenticated ? <LogOutButton /> : <LogInButton />}
-        <ContextConfig toggleTheme = {toggleTheme}/>
-        <button onClick = {toggleTheme}>Toggle</button>
-      </div>
-    </div>
-    </ThemeContext.Provider>
+            {isAuthenticated ? <LogOutButton /> : <LogInButton />}
+          </div>
+        </div>
+      </ThemeContext.Provider>
     </>
   );
 };
