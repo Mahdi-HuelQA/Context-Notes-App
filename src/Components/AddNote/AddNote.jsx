@@ -95,7 +95,7 @@ export const AddNote = ({
           handleToast={handleToast}
         />
       </div>
-      <Profile/>
+      {/* <Profile/> */}
     </div>
   );
 };

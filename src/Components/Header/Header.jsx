@@ -5,6 +5,7 @@ import { AddTag } from '../AddTag/AddTag';
 import './Header.css';
 import { ThemeContext } from '../../App';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import Profile from '../Authentication/Profile/Profile';
 
 export const Header = ({ tagFilter, searchFilter, updateTagsList,toggleTheme }) => {
   const darkTheme = useContext(ThemeContext);
@@ -22,6 +23,7 @@ export const Header = ({ tagFilter, searchFilter, updateTagsList,toggleTheme }) 
 
   return (
     <div style = {themeStyles}>
+    <Profile/>
       <Search searchFilter={searchFilter} />
       <TagSearch tagFilter={tagFilter} />
       <AddTag updateTagsList={updateTagsList} />

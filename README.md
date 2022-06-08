@@ -36,10 +36,10 @@ create db
 link to db
 create auth profile//
 link to user//
-60-30-10 colour rule
+60-30-10 colour rule//
 npm shorthand 
 edit
 theme toggle button: hover
 image upload
 change object to accomodate images
-move toggle button to top
+move toggle button to top//
