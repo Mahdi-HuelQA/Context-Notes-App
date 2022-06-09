@@ -3,7 +3,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import './Notes.css'
 import { ThemeContext } from '../../App';
 
-export const Notes = ({ id, text, date, handleDelete }) => {
+export const Notes = ({ id, text, date, tag, handleDelete }) => {
 
   const darkTheme = useContext(ThemeContext);
   const themeStyles = {
@@ -27,7 +27,7 @@ export const Notes = ({ id, text, date, handleDelete }) => {
     <div style={themeStyles} data-testid='notes'>
       <span  className='text-block'>{text} </span>
       <div className='note-footer'>
-        <small>{date}</small>
+        <small>{date}</small>      <small>Tag: {tag}</small>
         <MdDeleteForever
           onClick={() => handleDelete(id)}
           className='delete-icon'

@@ -27,7 +27,6 @@ display all notes//
 display search results//
 if empty dont create button//
 JEST: ensure code works//
-proptypes
 then refactor 
 then react router
 use json  file as db to store notes against users/
@@ -42,7 +41,9 @@ theme toggle button: hover
 image upload
 change object to accomodate images//cloudinary
 tailwind
+proptypes
 move toggle button to top//
 jss
+make tagging more clear to user inside note//
 responsive
 firebase
