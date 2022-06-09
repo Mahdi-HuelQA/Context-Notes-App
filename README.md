@@ -4,8 +4,8 @@ add delete button and icon //
 create search bar and function: //
 save search input//
 create function to filter using that input vs saved notes//
-search on enter
-displat result
+search on enter/
+displat result//
 improve styling//
 use BEM
 replace px with REM
@@ -14,10 +14,10 @@ Enter option
 name params if multiple
 add rating for level of importance
 delete all option
-API fETCH request: maybe moving banner at the top (loop)
+API fETCH request: maybe moving banner at the top (loop)//
 integrate data into project//
 Authentication//
-toggle dark mode
+toggle dark mode//
 bug: when there are only 2 notes left size is off
 useref?
 search by partial string match next step//
@@ -26,7 +26,6 @@ add tags to notes//
 display all notes//
 display search results//
 if empty dont create button//
-tailwind
 JEST: ensure code works//
 proptypes
 then refactor 
@@ -41,5 +40,9 @@ npm shorthand
 edit
 theme toggle button: hover
 image upload
-change object to accomodate images
+change object to accomodate images//cloudinary
+tailwind
 move toggle button to top//
+jss
+responsive
+firebase

@@ -36,7 +36,6 @@ const Quotes = () => {
   overflow: 'hidden',
   margin: '10px auto',
   // backgroundColor: 'whitesmoke',
-  borderRadius: '10%',
   height: '30px',
   fontStyle: 'italic',
   fontWeight: '400',

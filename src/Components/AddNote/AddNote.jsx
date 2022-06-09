@@ -86,7 +86,7 @@ export const AddNote = ({
         onKeyDown={handleKeypress}
       ></textarea>
       <div className='note-footer'>
-        <small data-testid='addLimitText'>
+        <small className='smallText' data-testid='addLimitText'>
           {characterLimit - noteText.length} remaining
         </small>
         <ToastButton className='save' handleSaveClick={handleSaveClick} user = {user}>

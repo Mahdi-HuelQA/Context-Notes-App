@@ -39,13 +39,13 @@ import React,{useState, useEffect} from 'react';
     };
 
     getUserMetadata();
-  }, [getAccessTokenSilently, user]);
+  }, [setUserMetadata, getAccessTokenSilently, user]);
     
 
     return (
       isAuthenticated && (
       <div>
-        <button data-testid='toastbtn' className="toast-btn" onClick={handleSaveClick}>Add a Note {user.nickname}</button>
+        <button data-testid='toastbtn' className="toast-btn" onClick={handleSaveClick}>Add a Note {user.nickname} </button>
         <ToastContainer className="Toast" />
       </div>
     )

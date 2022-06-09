@@ -53,3 +53,7 @@ textarea:focus {
   background-color: #ededed;
   cursor: pointer;
 }
+
+.smallText {
+  margin-bottom: 20px;
+}
