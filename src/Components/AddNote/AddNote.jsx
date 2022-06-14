@@ -38,6 +38,7 @@ export const AddNote = ({
     setNoteText(' ');
     console.log('handle save');
     notify();
+    setNotePhoto('')
   };
 
   const handleKeypress = (e) => {
@@ -70,7 +71,7 @@ export const AddNote = ({
     padding: '10px',
     borderRadius: '10px',
     marginTop: '10px',
-    marginBottom: '10px',
+    // marginBottom: '10px',
 
     /* extra */
 
@@ -115,7 +116,7 @@ export const AddNote = ({
         ref={fileInputRef}
         onChange={handlePhoto}
       />
-      <img className='preview'  src={preview} alt='text' />
+      {preview? <img className='preview'  src={preview} alt='text' />: null }
       <div className='note-footer'>
         <small className='smallText' data-testid='addLimitText'>
           {characterLimit - noteText.length} remaining

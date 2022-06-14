@@ -34,7 +34,7 @@ export const Notes = ({ id, text, date, tag, handleDelete,photo }) => {
           size='1.3em'
         />
       </div>
-      <img src= {photo} alt = "note"/>
+      {/* <img src= {photo} alt = "note"/> */}
     </div>
   );
 };
