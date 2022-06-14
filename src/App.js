@@ -21,7 +21,7 @@ const App = () => {
   const [darktheme, setDarkTheme] = useState(true);
 
   // Add function
-  const addNote = (text) => {
+  const addNote = (text,media) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
@@ -30,6 +30,8 @@ const App = () => {
       newTag: tag,
       name: isAuthenticated ? user.name : 'No User',
       email: isAuthenticated ? user.email : 'No Email',
+      photo: media
+
       //set default user
     };
     const newNotes = [...notes, newNote];

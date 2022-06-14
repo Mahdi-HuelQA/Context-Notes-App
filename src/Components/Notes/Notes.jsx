@@ -3,7 +3,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import './Notes.css'
 import { ThemeContext } from '../../App';
 
-export const Notes = ({ id, text, date, tag, handleDelete }) => {
+export const Notes = ({ id, text, date, tag, handleDelete,photo }) => {
 
   const darkTheme = useContext(ThemeContext);
   const themeStyles = {
@@ -20,7 +20,7 @@ export const Notes = ({ id, text, date, tag, handleDelete }) => {
     overflow: 'break-word',
     fontFamily:  'Roboto sans-serif',
     fontWeight: '500',
-    border: '#0b0b0b',
+    border: '1px solid #ececec',
     borderStyle:  'solid',
   };
   return (
@@ -34,6 +34,7 @@ export const Notes = ({ id, text, date, tag, handleDelete }) => {
           size='1.3em'
         />
       </div>
+      <img src= {photo} alt = "note"/>
     </div>
   );
 };

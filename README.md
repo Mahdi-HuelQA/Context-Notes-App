@@ -31,6 +31,7 @@ then refactor
 then react router
 use json  file as db to store notes against users/
 create db
+file upload
 link to db
 create auth profile//
 link to user//
@@ -47,3 +48,8 @@ jss
 make tagging more clear to user inside note//
 responsive
 firebase
+button borders: less harsh
+note border: 1px solid
+add note: fix border padding issue
+research: awwards page!
+s3

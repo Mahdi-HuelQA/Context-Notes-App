@@ -1,6 +1,6 @@
 import React from 'react';
 import './AddNote.css';
-import { useState,useContext } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { DropDown } from '../Dropdown/DropDown';
 import ToastButton from '../ToastNotification/AddToast';
 import { toast } from 'react-toastify';
@@ -11,7 +11,6 @@ import LogOutButton from '../Authentication/LogOut/LogOut';
 
 // import { height } from '@mui/system';
 
-
 export const AddNote = ({
   handleAddNote,
   handleTag,
@@ -20,6 +19,9 @@ export const AddNote = ({
 }) => {
   const [noteText, setNoteText] = useState('');
   const { user, isAuthenticated } = useAuth0();
+  const [notePhoto, setNotePhoto] = useState('');
+  const [preview, setPreview] = useState(notePhoto);
+  const fileInputRef = useRef('');
   const characterLimit = 200;
 
   const handleChange = (event) => {
@@ -31,7 +33,7 @@ export const AddNote = ({
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      handleAddNote(noteText);
+      handleAddNote(noteText, notePhoto);
     }
     setNoteText(' ');
     console.log('handle save');
@@ -50,29 +52,49 @@ export const AddNote = ({
     notify();
   };
 
+  const handlePhoto = (e) => {
+    // setNotePhoto(e.target.files[0])
+    const file = e.target.files[0];
+    if (file && file.type.substr(0, 5) === 'image') {
+      setNotePhoto(file);
+    } else {
+      setNotePhoto(null);
+    }
+  };
   const notify = () => toast.dark('Saved');
-
 
   const darkTheme = useContext(ThemeContext);
   const themeStyles = {
     backgroundColor: darkTheme ? '#333' : 'whitesmoke',
-    color: darkTheme ?  '#f58523' : '#0b0b0b',
+    color: darkTheme ? '#f58523' : '#0b0b0b',
     padding: '10px',
-    borderRadius:'10px',
-    marginTop:  '10px',
+    borderRadius: '10px',
+    marginTop: '10px',
     marginBottom: '10px',
-  
+
     /* extra */
-  
+
     minHeight: '170px',
     justifyContent: 'space-between',
     whiteSpace: 'pre-wrap',
     overflow: 'break-word',
-    fontFamily:'Roboto sans-serif',
-    fontWeight:  '500',
+    fontFamily: 'Roboto sans-serif',
+    fontWeight: '500',
     borderColor: '#0b0b0b',
-    borderStyle:'groove',
+    borderStyle: 'groove',
   };
+  console.log(`${notePhoto}`);
+  useEffect(() => {
+    if (notePhoto) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(notePhoto);
+    } else {
+      setPreview(null);
+    }
+  }, [notePhoto]);
 
   return (
     <div style={themeStyles} data-testid='addNote'>
@@ -85,11 +107,24 @@ export const AddNote = ({
         onChange={handleChange}
         onKeyDown={handleKeypress}
       ></textarea>
+      <input
+        type='file'
+        id='file-input'
+        name='ImageStyle'
+        accept='image/*'
+        ref={fileInputRef}
+        onChange={handlePhoto}
+      />
+      <img className='preview'  src={preview} alt='text' />
       <div className='note-footer'>
         <small className='smallText' data-testid='addLimitText'>
           {characterLimit - noteText.length} remaining
         </small>
-        <ToastButton className='save' handleSaveClick={handleSaveClick} user = {user}>
+        <ToastButton
+          className='save'
+          handleSaveClick={handleSaveClick}
+          user={user}
+        >
           {' '}
         </ToastButton>
         <DropDown
@@ -99,7 +134,7 @@ export const AddNote = ({
           handleToast={handleToast}
         />
       </div>
-     {isAuthenticated ? <LogOutButton /> : <LogInButton />}
+      {isAuthenticated ? <LogOutButton /> : <LogInButton />}
     </div>
   );
 };

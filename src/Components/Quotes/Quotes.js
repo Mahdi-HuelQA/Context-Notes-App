@@ -40,6 +40,7 @@ const Quotes = () => {
   fontStyle: 'italic',
   fontWeight: '400',
   textShadow: '2px',
+  borderRadius: "7px",
   };
 
   return (
