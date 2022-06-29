@@ -16,6 +16,7 @@ export const AddNote = ({
   handleTag,
   updateTagsList,
   tagsList,
+  fetchText
 }) => {
   const [noteText, setNoteText] = useState('');
   const { user, isAuthenticated } = useAuth0();
@@ -34,11 +35,13 @@ export const AddNote = ({
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
       handleAddNote(noteText, notePhoto);
+     
     }
     setNoteText(' ');
     console.log('handle save');
     notify();
     setNotePhoto('')
+    
   };
 
   const handleKeypress = (e) => {

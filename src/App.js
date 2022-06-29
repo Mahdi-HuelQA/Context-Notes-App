@@ -1,6 +1,6 @@
 import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
@@ -42,7 +42,7 @@ const App = () => {
   const deleteNote = (id) => {
     console.log('delete');
     console.log(notes);
-    let total = notes.filter((note) => note.id !== id);
+    let total = notes.filter((note) => note._id !== id);
     console.log(total);
     setNotes(total);
   };
@@ -52,7 +52,7 @@ const App = () => {
     setSearchToggle(true);
     let result = notes.filter(
       // (note) => note.text.toLowerCase() === text.toLowerCase()
-      (note) => note.text.toLowerCase().includes(text.toLowerCase())
+      (note) => note.noteCreated.toLowerCase().includes(text.toLowerCase())
     );
 
     //test state for search
@@ -68,7 +68,7 @@ const App = () => {
     setSearchToggle(true);
 
     let result = notes.filter(
-      (note) => note.newTag.toLowerCase() === text.toLowerCase()
+      (note) => note.tag.toLowerCase() === text.toLowerCase()
     );
     console.log(result);
     //test state for search
@@ -107,6 +107,20 @@ const App = () => {
   console.log('tags list is  ' + tagsList);
   console.log(user);
 
+  useEffect(() => {
+    fetchText();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Fetch request for notes
+async function fetchText() {
+  console.log('fetching');
+  let response = await fetch('http://localhost:8000');
+  let data = await response.json();
+  setNotes(data)
+  console.log(data);
+}
+
   return (
     <>
       <ThemeContext.Provider value={darktheme}>
@@ -131,6 +145,7 @@ const App = () => {
             handleTag={handleTag}
             updateTagsList={updateTagsList}
             tagsList={tagsList}
+            fetchNotes = {fetchText}
           />
 
           <div className='info'>

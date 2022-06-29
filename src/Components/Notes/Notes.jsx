@@ -25,14 +25,14 @@ export const Notes = ({ id, text, date, tag, handleDelete,photo }) => {
   };
 
  
-// Fetch request for notes
-async function fetchText() {
-  console.log('fetching');
-  let response = await fetch('http://localhost:8000');
-  let data = await response.json();
+// // Fetch request for notes
+// async function fetchText() {
+//   console.log('fetching');
+//   let response = await fetch('http://localhost:8000');
+//   let data = await response.json();
   
-  console.log(data);
-}
+//   console.log(data);
+// }
 
 
   return (
@@ -46,7 +46,7 @@ async function fetchText() {
           size='1.3em'
         />
       </div>
-      <button onClick={ ()=>fetchText()}>Test</button>
+      {/* <button onClick={ ()=>fetchText()}>Test</button> */}
       {/* <img src= {photo} alt = "note"/> */}
     </div>
   );
