@@ -23,6 +23,18 @@ export const Notes = ({ id, text, date, tag, handleDelete,photo }) => {
     border: '1px solid #ececec',
     borderStyle:  'solid',
   };
+
+ 
+// Fetch request for notes
+async function fetchText() {
+  console.log('fetching');
+  let response = await fetch('http://localhost:8000');
+  let data = await response.json();
+  
+  console.log(data);
+}
+
+
   return (
     <div style={themeStyles} data-testid='notes'>
       <span  className='text-block'>{text} </span>
@@ -34,6 +46,7 @@ export const Notes = ({ id, text, date, tag, handleDelete,photo }) => {
           size='1.3em'
         />
       </div>
+      <button onClick={ ()=>fetchText()}>Test</button>
       {/* <img src= {photo} alt = "note"/> */}
     </div>
   );

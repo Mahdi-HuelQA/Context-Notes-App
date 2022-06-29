@@ -53,3 +53,5 @@ note border: 1px solid
 add note: fix border padding issue
 research: awwards page!
 s3
+replace dummy data
+classes for darkmode with toggle: keep styles in css files
