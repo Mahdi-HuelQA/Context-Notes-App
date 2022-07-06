@@ -9,6 +9,7 @@
     "@huel-global/tailwind-preset": "^0.21.0",
     "@mui/material": "^5.7.0",
     "auth0": "^2.40.0",
+    "dotenv": "^16.0.1",
     "icons": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

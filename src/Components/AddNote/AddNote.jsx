@@ -16,7 +16,6 @@ export const AddNote = ({
   handleTag,
   updateTagsList,
   tagsList,
-  fetchText
 }) => {
   const [noteText, setNoteText] = useState('');
   const { user, isAuthenticated } = useAuth0();
@@ -101,7 +100,7 @@ export const AddNote = ({
   }, [notePhoto]);
 
   return (
-    <div style={themeStyles} data-testid='addNote'>
+    <div style={themeStyles} data-testid='addNote'> 
       <textarea
         data-testid='addLimit'
         rows='8'

@@ -1,6 +1,6 @@
 import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
@@ -10,6 +10,7 @@ import Quotes from './Components/Quotes/Quotes';
 import React from 'react';
 export const ThemeContext = React.createContext();
 // import Nav from './Components/Nav/Nav';
+const url = "http://localhost:8000";
 
 const App = () => {
   const [notes, setNotes] = useState(Data);
@@ -19,9 +20,10 @@ const App = () => {
   const [tag, setTag] = useState('null');
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
   const [darktheme, setDarkTheme] = useState(true);
+  const [deleteId, setDeleteId] = useState(10);
 
   // Add function
-  const addNote = (text,media) => {
+  const addNote = (text, media) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
@@ -30,7 +32,7 @@ const App = () => {
       newTag: tag,
       name: isAuthenticated ? user.name : 'No User',
       email: isAuthenticated ? user.email : 'No Email',
-      photo: media
+      photo: media,
 
       //set default user
     };
@@ -41,11 +43,28 @@ const App = () => {
   // Delete function
   const deleteNote = (id) => {
     console.log('delete');
-    console.log(notes);
-    let total = notes.filter((note) => note._id !== id);
-    console.log(total);
-    setNotes(total);
+    // console.log(notes);
+    // let total = notes.filter((note) => note._id !== id);
+    // console.log(total);
+    // setNotes(total);
+    return setDeleteId(id);
   };
+
+  useEffect(() => {
+    async function fetchDelete() {
+      const requestOptions = {
+        method: 'DELETE',
+        headers: {"Content-Type":"application/json"}
+      };
+      console.log(requestOptions);
+      fetch(`${url}/${deleteId}`, requestOptions);
+      console.log('delete');
+      console.log(deleteId);
+      // setDeleteId(null);
+    }
+    fetchDelete();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deleteId]);
 
   // search text
   const searchFilter = (text) => {
@@ -113,13 +132,13 @@ const App = () => {
   }, []);
 
   // Fetch request for notes
-async function fetchText() {
-  console.log('fetching');
-  let response = await fetch('http://localhost:8000');
-  let data = await response.json();
-  setNotes(data)
-  console.log(data);
-}
+  async function fetchText() {
+    console.log('fetching');
+    let response = await fetch('http://localhost:8000');
+    let data = await response.json();
+    setNotes(data);
+    console.log(data);
+  }
 
   return (
     <>
@@ -145,12 +164,10 @@ async function fetchText() {
             handleTag={handleTag}
             updateTagsList={updateTagsList}
             tagsList={tagsList}
-            fetchNotes = {fetchText}
+            fetchNotes={fetchText}
           />
 
-          <div className='info'>
-            {/* <Profile /> */}
-          </div>
+          <div className='info'>{/* <Profile /> */}</div>
         </div>
       </ThemeContext.Provider>
     </>

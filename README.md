@@ -55,3 +55,14 @@ research: awwards page!
 s3
 replace dummy data
 classes for darkmode with toggle: keep styles in css files
+
+DB related tasks:
+fetch req for delete function
+fetch request for add note component
+delete button changed to match new id
+trim date//
+add image upload functionality 
+test on postman
+css variables
+check form designs
+FE ENV
