@@ -33,8 +33,8 @@ const App = () => {
       date: isAuthenticated ? date : "No Date",
       tag: tag,
       name: isAuthenticated ? user.name : 'No User',
-      // email: isAuthenticated ? user.email : 'No Email',
-      // photo: media,
+      email: isAuthenticated ? user.email : 'No Email',
+       media: media ? media : " No media"
 
       //set default user
     };
