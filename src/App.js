@@ -10,10 +10,10 @@ import Quotes from './Components/Quotes/Quotes';
 import React from 'react';
 export const ThemeContext = React.createContext();
 // import Nav from './Components/Nav/Nav';
-const url = "http://localhost:8000";
+const url = 'http://localhost:8000';
 
 const App = () => {
-  const [notes, setNotes] = useState(Data);
+  const [notes, setNotes] = useState();
   const [search, setSearch] = useState(notes);
   const { user, isAuthenticated } = useAuth0();
   const [searchToggle, setSearchToggle] = useState(false);
@@ -21,32 +21,56 @@ const App = () => {
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
   const [darktheme, setDarkTheme] = useState(true);
   const [deleteId, setDeleteId] = useState(10);
+  const [noteAdded, setNoteAdded] = useState();
+  
 
   // Add function
   const addNote = (text, media) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
-      text: text,
-      date: date.toLocaleDateString(),
-      newTag: tag,
+      noteCreated: text,
+      date: isAuthenticated ? date : "No Date",
+      tag: tag,
       name: isAuthenticated ? user.name : 'No User',
-      email: isAuthenticated ? user.email : 'No Email',
-      photo: media,
+      // email: isAuthenticated ? user.email : 'No Email',
+      // photo: media,
 
       //set default user
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
+    setNoteAdded(newNote)
+   
   };
+
+  //Post Fetch Request
+  useEffect(() => {
+    async function fetchPost() {
+      const requestOptions = {
+        method: 'POST',
+        Accept: 'application/json',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(noteAdded),
+      };
+      console.log(requestOptions);
+      let response = await fetch(`${url}`, requestOptions);
+      let data = await response.json();
+      console.log('Post');
+      console.log(data);
+    }
+    fetchPost();
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [noteAdded]);
 
   // Delete function
   const deleteNote = (id) => {
     console.log('delete');
     // console.log(notes);
-    // let total = notes.filter((note) => note._id !== id);
+    let total = notes.filter((note) => note._id !== id);
     // console.log(total);
-    // setNotes(total);
+    setNotes(total);
     return setDeleteId(id);
   };
 
@@ -54,7 +78,7 @@ const App = () => {
     async function fetchDelete() {
       const requestOptions = {
         method: 'DELETE',
-        headers: {"Content-Type":"application/json"}
+        headers: { 'Content-Type': 'application/json' },
       };
       console.log(requestOptions);
       fetch(`${url}/${deleteId}`, requestOptions);
@@ -134,7 +158,7 @@ const App = () => {
   // Fetch request for notes
   async function fetchText() {
     console.log('fetching');
-    let response = await fetch('http://localhost:8000');
+    let response = await fetch(url);
     let data = await response.json();
     setNotes(data);
     console.log(data);
