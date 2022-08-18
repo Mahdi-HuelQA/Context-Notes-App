@@ -87,17 +87,44 @@ export const AddNote = ({
     borderStyle: 'groove',
   };
   console.log(`${notePhoto}`);
+ 
   useEffect(() => {
     if (notePhoto) {
+      const uploadImage = async (e) => {
+        const file = e.target.files[0];
+        const base64 = await convertBase64(file);
+        // send to server as base64
+        // on server: base64 decode, push result to S3 as a file
+        setNotePhoto(base64);
+      };
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
+        uploadImage()
       };
       reader.readAsDataURL(notePhoto);
     } else {
       setPreview(null);
     }
   }, [notePhoto]);
+
+
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
 
   return (
     <div style={themeStyles} data-testid='addNote'> 

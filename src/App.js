@@ -1,7 +1,6 @@
 import './App.css';
 import { NotesList } from './Components/NotesList/NotesList';
 import { useState, useEffect } from 'react';
-import { Data } from './Components/Data/Data';
 import { nanoid } from 'nanoid';
 import { Header } from './Components/Header/Header';
 import { AddNote } from './Components/AddNote/AddNote';
@@ -20,28 +19,24 @@ const App = () => {
   const [tag, setTag] = useState('null');
   const [tagsList, SetTagsList] = useState(['food', 'sport', 'memory']);
   const [darktheme, setDarkTheme] = useState(true);
-  const [deleteId, setDeleteId] = useState(10);
+  const [deleteId, setDeleteId] = useState();
   const [noteAdded, setNoteAdded] = useState();
-  
 
   // Add function
   const addNote = (text, media) => {
-    const date = new Date();
     const newNote = {
       id: nanoid(),
       noteCreated: text,
-      date: isAuthenticated ? date : "No Date",
       tag: tag,
-      name: isAuthenticated ? user.name : 'No User',
-      email: isAuthenticated ? user.email : 'No Email',
-       media: media ? media : " No media"
+      name: isAuthenticated ? user.name : null,
+      email: isAuthenticated ? user.email : "mahdi@huel.com",
+      media: media ? media : null,
 
       //set default user
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
-    setNoteAdded(newNote)
-   
+    setNoteAdded(newNote);
   };
 
   //Post Fetch Request
@@ -60,7 +55,9 @@ const App = () => {
       console.log(data);
     }
     fetchPost();
-    
+    fetchText()
+   
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noteAdded]);
 
@@ -68,7 +65,7 @@ const App = () => {
   const deleteNote = (id) => {
     console.log('delete');
     // console.log(notes);
-    let total = notes.filter((note) => note._id !== id);
+    let total = notes.filter((note) => note.id !== id);
     // console.log(total);
     setNotes(total);
     return setDeleteId(id);
@@ -80,13 +77,14 @@ const App = () => {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       };
-      console.log(requestOptions);
+      // console.log(requestOptions);
       fetch(`${url}/${deleteId}`, requestOptions);
       console.log('delete');
-      console.log(deleteId);
+      // console.log(deleteId);
       // setDeleteId(null);
     }
     fetchDelete();
+    fetchText()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteId]);
 
@@ -153,7 +151,7 @@ const App = () => {
   useEffect(() => {
     fetchText();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [noteAdded, deleteId]);
 
   // Fetch request for notes
   async function fetchText() {

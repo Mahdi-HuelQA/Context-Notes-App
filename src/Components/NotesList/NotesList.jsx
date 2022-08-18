@@ -9,7 +9,7 @@ export const NotesList = ({ notes,handleAddNote, handleDelete, handleTag, update
   return (
     <div className='notes-List' data-testid='notesList' >
       {notes?.map((note) => (
-        <Notes key = { note._id }id={note._id} text={note.noteCreated} date={note.noteDate} handleDelete = {handleDelete} tag = {note.tag} photo  = {note.media}/>
+        <Notes key = { note.id } id={note.id} text={note.noteCreated} date={note.noteDate} handleDelete = {handleDelete} tag = {note.tag} photo  = {note.media}/>
       ))}
       {/* <AddNote handleAddNote = {handleAddNote} handleTag = {handleTag} updateTagsList = {updateTagsList} tagsList = {tagsList} /> */}
     </div>
