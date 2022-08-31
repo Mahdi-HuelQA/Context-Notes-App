@@ -44,7 +44,7 @@ const Quotes = () => {
   };
 
   return (
-    <div style = {themeStyles}>
+    <div className={ darkTheme ? "lightQuote" : "darkQuote"}>
       <div class='photobanner'>
         <span class='first'>{quote.text} </span>
       </div>

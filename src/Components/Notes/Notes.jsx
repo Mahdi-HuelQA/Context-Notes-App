@@ -23,7 +23,7 @@ export const Notes = ({ id, text, date, tag, handleDelete,photo }) => {
     <div className={ darkTheme ? "lightNote" : "darkNote"} data-testid='notes'>
       <span  className='text-block'>{text} </span>
       <div className='note-footer'>
-        <small>{date}</small>      <small>Tag: {tag}</small>
+        <small className='small-date'>{date}</small>      <small className='small-tag'>Tag: {tag}</small>
         <MdDeleteForever
           onClick={() => handleDelete(id)}
           className='delete-icon'

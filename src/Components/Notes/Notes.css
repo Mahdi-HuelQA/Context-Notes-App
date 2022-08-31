@@ -48,4 +48,14 @@
   display: inline-block;
   text-align: left;
   overflow: hidden;
+  color: white;
+}
+
+.small-date {
+  color: white;
+
+}
+.small-tag {
+  color: white;
+
 }
