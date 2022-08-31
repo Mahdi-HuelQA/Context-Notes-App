@@ -29,7 +29,7 @@ const App = () => {
       noteCreated: text,
       tag: tag,
       name: isAuthenticated ? user.name : null,
-      email: isAuthenticated ? user.email : "mahdi@huel.com",
+      email: isAuthenticated ? user.email : 'mahdi@huel.com',
       media: media ? media : null,
 
       //set default user
@@ -55,8 +55,7 @@ const App = () => {
       console.log(data);
     }
     fetchPost();
-    fetchText()
-   
+    fetchText();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noteAdded]);
@@ -84,7 +83,7 @@ const App = () => {
       // setDeleteId(null);
     }
     fetchDelete();
-    fetchText()
+    fetchText();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteId]);
 

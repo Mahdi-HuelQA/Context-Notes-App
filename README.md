@@ -53,17 +53,18 @@ note border: 1px solid
 add note: fix border padding issue
 research: awwards page!
 s3
-replace dummy data
+replace dummy data//
 classes for darkmode with toggle: keep styles in css files
 
 DB related tasks:
-fetch req for delete function
+fetch req for delete function//
 fetch request for add note component
-delete button changed to match new id
-[X] trim date
+delete button changed to match new id//
+[X] trim date//
 add image upload functionality 
-test on postman
+test on postman//
 css variables
 check form designs
 FE ENV
-update back end schema
+update back end schema//
+combine searches
