@@ -1,23 +1,40 @@
-.note {
-  /* background-color: #4297A0;
-  background-color: white;
-  min-height: 170px;
-  padding: 1rem;
-  border-radius: 10px;
-  border-width: 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-  font-family: 'Roboto', sans-serif;
+.darkNote {
+  background-color: #333;
+  color: #ccc;
+  border-style: solid;
+  border: 1px solid #ececec;
   font-weight: 500;
-  /* color: whitesmoke; 
-   */
+  font-family: sans-serif;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  border-width: 1px;
+  padding: 1rem;
+  min-height: 170px;
 }
- /* update margin */
-/* white-space saves spacing */
-/* overflow-wrap breaks text into new line */
+
+.lightNote {
+  background: linear-gradient(
+    177.9deg,
+    rgb(64, 70, 109) 3.6%,
+    rgb(15, 39, 100) 105.8%
+  );
+  color: #f58523;
+  border-style: solid;
+  border: 1px solid #ececec;
+  font-weight: 500;
+  font-family: sans-serif;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  border-width: 1px;
+  padding: 1rem;
+  min-height: 170px;
+}
 
 .note-footer {
   display: flex;
@@ -25,7 +42,7 @@
   align-items: center;
 }
 .delete-icon {
-color:#f58523;;
+  color: #f58523;
 }
 .text-block {
   display: inline-block;

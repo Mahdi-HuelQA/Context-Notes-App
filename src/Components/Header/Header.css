@@ -1,10 +1,25 @@
-.Header {
+.lightHeader {
+  background: linear-gradient(
+    177.9deg,
+    rgb(64, 70, 109) 3.6%,
+    rgb(15, 39, 100) 105.8%
+  );
+  color: #ccc;
+
   display: flex;
   flex-direction: row;
-  /* background-color: #4297A0; */
-  background-color: #0b0b0b;
   margin-bottom: 5px;
   border-radius: 10px;
   justify-content: space-evenly;
+}
 
+.darkHeader {
+  background-color: whitesmoke;
+  color: #0b0b0b;
+
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  justify-content: space-evenly;
 }

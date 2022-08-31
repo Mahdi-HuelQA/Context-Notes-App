@@ -17,20 +17,10 @@ export const Search = ({ searchFilter }) => {
     setSearch('');
   };
 
-
   const darkTheme = useContext(ThemeContext);
-  const themeStyles = {
-    backgroundColor: darkTheme ? '#333' : '#ccc',
-    color: darkTheme ? '#ccc' : '#f58523',
-    margin: "1px",
-    marginBottom:  "5px",
-    padding: "5px",
-    borderRadius:"15px",
-    alignItems: "center",
-    marginTop: "5px"
-  };
+
   return (
-    <div style = {themeStyles}>
+    <div className={darkTheme ? 'lightSearch' : 'darkSearch'}>
       <MdSearch className='search-icons' size='1.3em' />
       <input
         type='text'
@@ -44,6 +34,5 @@ export const Search = ({ searchFilter }) => {
     </div>
   );
 };
-
 
 //test button renders on page and works (2)

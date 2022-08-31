@@ -1,0 +1,27 @@
+.lightTag{
+
+  background: linear-gradient(177.9deg, rgb(64, 70, 109) 3.6%, rgb(15, 39, 100) 105.8%);
+  color:#f58523;
+
+  margin: 1px;
+  margin-bottom: 5px; 
+  padding: 5px;
+  border-radius: 15px;
+  align-items: center;
+  margin-top: 10px;
+  
+
+}
+
+.darkTag{
+  background-color: #333;
+  color: #ccc;
+
+  margin: 1px;
+  margin-bottom: 5px; 
+  padding: 5px;
+  border-radius: 15px;
+  align-items: center;
+  margin-top: 5px;
+  
+}

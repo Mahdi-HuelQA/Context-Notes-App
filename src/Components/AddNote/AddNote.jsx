@@ -68,28 +68,6 @@ export const AddNote = ({
 
   const darkTheme = useContext(ThemeContext);
   
-  const themeStyles = {
-   
-   
-    // backgroundColor: darkTheme ? '#333' : 'whitesmoke',
-    // color: darkTheme ? '#f58523' : '#0b0b0b',
-
-    // padding: '10px',
-    // borderRadius: '10px',
-    // marginTop: '10px',
-    // marginBottom: '10px',
-
-    /* extra */
-
-    // minHeight: '170px',
-    // justifyContent: 'space-between',
-    // whiteSpace: 'pre-wrap',
-    // overflow: 'break-word',
-    // fontFamily: 'Roboto sans-serif',
-    // fontWeight: '500',
-    // borderColor: '#0b0b0b',
-    // borderStyle: 'groove',
-  };
   console.log(`${notePhoto}`);
  
   useEffect(() => {
@@ -131,7 +109,7 @@ export const AddNote = ({
 
 
   return (
-    <div className={ darkTheme ? "lightnote" : "darkNote"} data-testid='addNote'> 
+    <div className={ darkTheme ? "lightNote" : "darkNote"} data-testid='addNote'> 
       <textarea
         data-testid='addLimit'
         rows='8'

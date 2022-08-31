@@ -1,6 +1,7 @@
 import { MdSearch } from 'react-icons/md';
 import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../../App';
+import './TagSearch.css'
 
 export const TagSearch = ({ tagFilter }) => {
   const [search, setSearch] = useState('');
@@ -16,18 +17,9 @@ export const TagSearch = ({ tagFilter }) => {
     setSearch('');
   };
   const darkTheme = useContext(ThemeContext);
-  const themeStyles = {
-    backgroundColor: darkTheme ? '#333' : '#ccc',
-    color: darkTheme ? '#ccc' : '#f58523',
-    margin: "1px",
-    marginBottom:  "5px",
-    padding: "5px",
-    borderRadius:"15px",
-    alignItems: "center",
-    marginTop: "5px"
-  };
+  
   return (
-    <div style = {themeStyles}>
+    <div className={ darkTheme ? "lightTag" : "darkTag"}>
       <MdSearch className='search-icons' size='1.3em' />
       <input
         type='text'

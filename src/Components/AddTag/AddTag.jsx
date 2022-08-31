@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { GoPlus } from "react-icons/go";
 import { ThemeContext } from '../../App';
+import './AddTag.css'
 
 
 export const AddTag = ({ updateTagsList }) => {
@@ -17,20 +18,10 @@ export const AddTag = ({ updateTagsList }) => {
   };
 
   const darkTheme = useContext(ThemeContext);
-  const themeStyles = {
-    backgroundColor: darkTheme ? '#333' : '#ccc',
-    color: darkTheme ? '#ccc' : '#f58523',
-    margin: "1px",
-    marginBottom:  "5px",
-    padding: "5px",
-    borderRadius:"15px",
-    alignItems: "center",
-    marginTop: "5px"
-  };
 
   // add reset to empty string functionality
   return (
-    <div style = {themeStyles} data-testid='add'>
+    <div className={ darkTheme ? "lightTag" : "darkTag"} data-testid='add'>
     <GoPlus className='search-icons' size='1.3em' />
       <input
         type='text'
