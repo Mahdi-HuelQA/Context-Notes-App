@@ -83,7 +83,7 @@ const App = () => {
       // setDeleteId(null);
     }
     fetchDelete();
-    fetchText();
+    // fetchText();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteId]);
 

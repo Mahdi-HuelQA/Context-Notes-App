@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from 'react';
 import './Quotes.css';
 import { ThemeContext } from '../../App';
 
-
 const Quotes = () => {
   const [quote, setQuote] = useState([]);
 
@@ -29,22 +28,9 @@ const Quotes = () => {
   }
 
   const darkTheme = useContext(ThemeContext);
-  const themeStyles = {
-    backgroundColor: darkTheme ? '#333' : 'whitesmoke',
-    color: darkTheme ?  '#f58523' : '#333',
-  width: '960px',
-  overflow: 'hidden',
-  margin: '10px auto',
-  // backgroundColor: 'whitesmoke',
-  height: '30px',
-  fontStyle: 'italic',
-  fontWeight: '400',
-  textShadow: '2px',
-  borderRadius: "7px",
-  };
 
   return (
-    <div className={ darkTheme ? "lightQuote" : "darkQuote"}>
+    <div className={darkTheme ? 'lightQuote' : 'darkQuote'}>
       <div class='photobanner'>
         <span class='first'>{quote.text} </span>
       </div>
